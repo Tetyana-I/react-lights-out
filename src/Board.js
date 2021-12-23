@@ -27,7 +27,7 @@ import "./Board.css";
  *
  **/
 
-function Board({ nrows = 7, ncols = 9, chanceLightStartsOn }) {
+function Board({ nrows = 4, ncols = 5, chanceLightStartsOn }) {
   const [board, setBoard] = useState(createBoard());
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
@@ -43,12 +43,12 @@ function Board({ nrows = 7, ncols = 9, chanceLightStartsOn }) {
       }
       initialBoard.push(newRow);
     }
-    // console.log(initialBoard);
     return initialBoard;
   }
 
   function hasWon() {
     // TODO: check the board in state to determine whether the player has won.
+    // return board.every(row => (row.every(cell => cell == false)) == false)
   }
 
   function flipCellsAround(coord) {
@@ -73,11 +73,21 @@ function Board({ nrows = 7, ncols = 9, chanceLightStartsOn }) {
 
   // if the game is won, just show a winning msg & render nothing else
 
-  // TODO
 
-  // make table board
-  
+  // DONE: made table board
 
+  return (
+    <div>
+      <h1>Lights Out!</h1>
+      <table className="Board">
+        {board.map((row) => (
+          <tr>
+            {row.map((lightOn) => (<Cell isLit={lightOn}/>))}
+          </tr>
+        ))}
+      </table>
+    </div>
+  );
 }
 
 export default Board;
