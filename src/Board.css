@@ -1,3 +1,19 @@
 .Board {
   margin: 0 auto;
 }
+
+.Board-msg {
+  font-size: 5em;
+  color: gold;
+  text-shadow: 2px 2px darkred;
+}
+
+.Board-rules {
+  font-size: 1.2em;
+  width: 40vw;
+  margin: 2em auto;
+  border: solid 2px lightgrey;
+  border-radius: 5px;
+  padding: 0.5em;
+  background-color: lightyellow;
+}
