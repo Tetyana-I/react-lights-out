@@ -1,11 +1,3 @@
-// function Cell({ flipCellsAround, isLit, x, y }) {
-//     const classes = `Cell ${isLit ? "Cell-lit" : ""}`;
-//     function flipCellsAroundMe() {
-//       flipCellsAround(x,y);
-//     }
-//     return <td className={classes} onClick={flipCellsAroundMe} />;
-//   }
-
 import { render } from "@testing-library/react";
 import Cell from "./Cell";
 
@@ -13,3 +5,14 @@ import Cell from "./Cell";
 it("renders without crashing", function() {
   render(<Cell />);
 });
+
+// snapshot test
+it("matches snapshot", function() {
+    const {asFragment} = render(<Cell isLit />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+  
+  it("matches snapshot", function() {
+    const {asFragment} = render(<Cell />);
+    expect(asFragment()).toMatchSnapshot();
+  });
