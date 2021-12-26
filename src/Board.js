@@ -99,7 +99,7 @@ function Board({ nrows, ncols }) {
         <table className="Board">
           {board.map((row, y) => (
             <tr>
-              {row.map((lightOn, x) => (<td><Cell isLit={lightOn} y={y} x={x} flipCellsAround = {flipCellsAround}/></td>))}
+              {row.map((lightOn, x) => (<Cell isLit={lightOn} y={y} x={x} flipCellsAround = {flipCellsAround}/>))}
             </tr>
           ))}
         </table>

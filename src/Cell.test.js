@@ -6,13 +6,14 @@ it("renders without crashing", function() {
   render(<Cell />);
 });
 
-// snapshot test
-it("matches snapshot", function() {
-    const {asFragment} = render(<Cell isLit />);
-    expect(asFragment()).toMatchSnapshot();
-  });
-  
-  it("matches snapshot", function() {
-    const {asFragment} = render(<Cell />);
-    expect(asFragment()).toMatchSnapshot();
-  });
+
+it("contains correct class when cell is lit", function() {
+    const { queryByTestId } = render(<Cell x={0} y={0} isLit={true}/>);
+    expect(queryByTestId("0-0")).toHaveClass("Cell-lit");
+})
+
+
+it("contains correct class when cell is unlit", function() {
+    const { queryByTestId } = render(<Cell x={0} y={1} isLit={false}/>);
+    expect(queryByTestId('1-0')).toHaveClass('Cell ');
+})

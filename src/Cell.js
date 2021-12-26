@@ -19,7 +19,7 @@ function Cell({ flipCellsAround, isLit, x, y }) {
   function flipCellsAroundMe() {
     flipCellsAround(x,y);
   }
-  return <td className={classes} onClick={flipCellsAroundMe} />;
+  return <td className={classes} onClick={flipCellsAroundMe} data-testid={`${y}-${x}`} />;
 }
 
 export default Cell;
