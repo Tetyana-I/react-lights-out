@@ -48,7 +48,7 @@ function Board({ nrows, ncols }) {
   
   function hasWon() {
     // DONE: checked the board in state to determine whether the player has won.
-    return board.every(row => (row.every(cell => (cell === false)) === true))
+    return board.every(row => row.every(cell => !cell));
   }
 
   // function returns deep copy of 2D-array
